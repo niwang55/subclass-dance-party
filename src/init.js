@@ -27,7 +27,30 @@ $(document).ready(function() {
       $('body').width() * Math.random(),
       Math.random() * 1000
     );
+
+    window.dancers.push(dancer);
+    
     $('body').append(dancer.$node);
+  });
+
+  $('.lineup').on('click', function(event) {
+    dancers.forEach(function(dancer) {
+      dancer.lineUp();
+    });
+  });
+
+  $('.return-position').on('click', function(event) {
+    dancers.forEach(function(dancer) {
+      dancer.returnPos();
+    });
+  });
+
+  $('body').on('mouseenter', '.white-dancer', function(event) {
+    $(this).fadeOut();
+  });
+
+  $('body').on('mouseleave', '.white-dancer', function(event) {
+    $(this).fadeIn();
   });
 });
 

@@ -12,6 +12,23 @@ body{
 body, a:link, a:visited, a:active{
   color: lightblue;
 }
+button{
+  width: 100px;
+  height: 32px;
+  border-radius: 5px;
+  font-size: 10px;
+  background-color: white;
+  cursor: pointer;
+}
+button:hover{
+  background-color: grey;
+  color: white;
+}
+.position-buttons{
+  position: relative;
+  top: 20px;
+  left: 20px;
+}
 .title, .addDancerButton{
   padding:5px 12px;
   float:right;
@@ -35,4 +52,7 @@ body, a:link, a:visited, a:active{
   height: 200px;
   background-size: cover;
   background-image: url('http://alansands.com/images/ase_promo/download/hr/brown-outfit-1-hr.png');
+}
+.resize-dancer{
+  background-color: red;
 }

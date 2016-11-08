@@ -2,7 +2,6 @@ var makePictureDancer = function(top, left, timeBetweenSteps) {
   makeDancer.apply(this, arguments);
   this.$node.addClass('picture-dancer');
 
-  this.top = top;
   this.step();
 };
 
@@ -15,4 +14,12 @@ makePictureDancer.prototype.step = function() {
   this.$node.animate({'margin-top': '+=10px'});
   this.$node.animate({'margin-top': '-=10px'});
 
+};
+
+makePictureDancer.prototype.lineUp = function() {
+  this.$node.css('left', '25%');
+};
+
+makePictureDancer.prototype.returnPos = function() {
+  this.$node.css('left', this.left + 'px');
 };
