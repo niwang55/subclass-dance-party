@@ -1,6 +1,45 @@
 $(document).ready(function() {
   window.dancers = [];
 
+  var findNeighbors = function(top, left) {
+    var neighbors = [];
+
+
+    // Get the diagonal position of the dancer passed in
+    var currPosition = getPosition(top, left);
+
+    // Loop through dancers array
+    dancers.forEach(function(element) {
+      // Get positions for each dancer in the array
+      var dancerPosition = getPosition(element.top, element.left);
+      // If the positions are within 20px
+      if ( Math.abs(currPosition - dancerPosition) <= 20) {
+        // Add the element to the neighbors array
+        neighbors.push(element);
+      }
+    });
+
+    return neighbors;
+  };
+  
+  // Helper function for getting the diagonal position of a dancer
+  // Using pythagorean theorem
+  var getPosition = function(top, left) {
+    return Math.sqrt( (top * top) + (left * left) );
+  };
+
+  // Click handler
+  $('body').on('click', '.dancer', function(event) {
+    var $clicked = $(this);
+    var neighbors = findNeighbors($clicked.position().top, $clicked.position().left);
+
+    // Loop through neighbors
+    neighbors.forEach(function(dancer) {
+      // Access $node and do something to it
+      dancer.$node.css('color', 'red');
+    });
+  });
+
   $('.addDancerButton').on('click', function(event) {
     /* This function sets up the click handlers for the create-dancer
      * buttons on dancefloor.html. You should only need to make one small change to it.
@@ -45,11 +84,15 @@ $(document).ready(function() {
     });
   });
 
-  $('body').on('mouseenter', '.white-dancer', function(event) {
+  $('body').on('mouseenter', '.green-dancer', function(event) {
     $(this).fadeOut();
   });
 
-  $('body').on('mouseleave', '.white-dancer', function(event) {
+  // $('body').on('click', '.green-dancer', function(event) {
+  //   $(this).css('color', 'red');
+  // });
+
+  $('body').on('mouseleave', '.green-dancer', function(event) {
     $(this).fadeIn();
   });
 });

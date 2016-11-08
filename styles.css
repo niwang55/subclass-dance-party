@@ -34,8 +34,10 @@ button:hover{
   float:right;
 }
 .topbar{
-  height:32px;
+  height:26px;
   background-color: #555;
+  font-family: Helvetica;
+  font-size: 14px;
 }
 .title{
   background-color: #777;
