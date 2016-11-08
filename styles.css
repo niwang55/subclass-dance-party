@@ -4,6 +4,9 @@ body, html{
 body{
   margin: 0px;
   background-color:#444;
+  background-image: url('http://lightenergystudio.com/images/led_floor/led-dance-floor-main-2015.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
   font-size: 18px;
 }
 body, a:link, a:visited, a:active{
@@ -21,7 +24,15 @@ body, a:link, a:visited, a:active{
   background-color: #777;
 }
 .dancer{
-  border:10px solid red;
+  border:10px solid;
   border-radius:10px;
   position:absolute;
+  color: red;
+}
+.picture-dancer{
+  border: none;
+  width: 75px;
+  height: 200px;
+  background-size: cover;
+  background-image: url('http://alansands.com/images/ase_promo/download/hr/brown-outfit-1-hr.png');
 }
