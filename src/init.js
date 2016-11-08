@@ -2,30 +2,19 @@ $(document).ready(function() {
   window.dancers = [];
 
   var findNeighbors = function(top, left) {
-    var neighbors = [];
+    var neighbors = [];    
 
-
-    // Get the diagonal position of the dancer passed in
-    var currPosition = getPosition(top, left);
-
-    // Loop through dancers array
     dancers.forEach(function(element) {
-      // Get positions for each dancer in the array
-      var dancerPosition = getPosition(element.top, element.left);
-      // If the positions are within 20px
-      if ( Math.abs(currPosition - dancerPosition) <= 20) {
-        // Add the element to the neighbors array
+      var a = Math.abs( top - element.top );
+      var b = Math.abs( left - element.left );
+      var distance = Math.sqrt( (a * a) + (b * b) );
+
+      if (distance < 100) {
         neighbors.push(element);
       }
     });
 
     return neighbors;
-  };
-  
-  // Helper function for getting the diagonal position of a dancer
-  // Using pythagorean theorem
-  var getPosition = function(top, left) {
-    return Math.sqrt( (top * top) + (left * left) );
   };
 
   // Click handler
@@ -36,7 +25,7 @@ $(document).ready(function() {
     // Loop through neighbors
     neighbors.forEach(function(dancer) {
       // Access $node and do something to it
-      dancer.$node.css('color', 'red');
+      dancer.$node.css('color', 'cyan');
     });
   });
 
