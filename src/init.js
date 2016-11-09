@@ -25,7 +25,7 @@ $(document).ready(function() {
     // Loop through neighbors
     neighbors.forEach(function(dancer) {
       // Access $node and do something to it
-      dancer.$node.css('color', 'cyan');
+      dancer.$node.css('color', 'white');
     });
   });
 
