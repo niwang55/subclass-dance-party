@@ -1,25 +1,46 @@
-var makePictureDancer = function(top, left, timeBetweenSteps) {
-  makeDancer.apply(this, arguments);
-  this.$node.addClass('picture-dancer');
+var makePictureDancer = class extends makeDancer {
+  initialize() {
+    this.$node.addClass('picture-dancer');
+    this.step();
+  }
 
-  this.step();
+  step() {
+    super.step();
+    this.$node.animate({'margin-top': '+=10px'});
+    this.$node.animate({'margin-top': '-=10px'});
+  }
+
+  lineUp() {
+    this.$node.css('left', '25%');
+  }
+
+  returnPos() {
+    this.$node.css('left', this.left + 'px');
+  }
 };
 
-makePictureDancer.prototype = Object.create(makeDancer.prototype);
-makePictureDancer.prototype.constructor = makePictureDancer;
+// var makePictureDancer = function(top, left, timeBetweenSteps) {
+//   makeDancer.apply(this, arguments);
+//   this.$node.addClass('picture-dancer');
 
-makePictureDancer.prototype.step = function() {
-  makeDancer.prototype.step.call(this);
+//   this.step();
+// };
 
-  this.$node.animate({'margin-top': '+=10px'});
-  this.$node.animate({'margin-top': '-=10px'});
+// makePictureDancer.prototype = Object.create(makeDancer.prototype);
+// makePictureDancer.prototype.constructor = makePictureDancer;
 
-};
+// makePictureDancer.prototype.step = function() {
+//   makeDancer.prototype.step.call(this);
 
-makePictureDancer.prototype.lineUp = function() {
-  this.$node.css('left', '25%');
-};
+//   this.$node.animate({'margin-top': '+=10px'});
+//   this.$node.animate({'margin-top': '-=10px'});
 
-makePictureDancer.prototype.returnPos = function() {
-  this.$node.css('left', this.left + 'px');
-};
+// };
+
+// makePictureDancer.prototype.lineUp = function() {
+//   this.$node.css('left', '25%');
+// };
+
+// makePictureDancer.prototype.returnPos = function() {
+//   this.$node.css('left', this.left + 'px');
+// };
