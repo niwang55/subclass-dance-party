@@ -25,13 +25,24 @@ button:hover{
   color: white;
 }
 .position-buttons{
-  position: relative;
-  top: 20px;
-  left: 20px;
+  position: absolute;
+  top: 150px;
+  left: 30px;
 }
 .title, .addDancerButton{
   padding:5px 12px;
   float:right;
+}
+.addDancerButton{
+  float:left;
+  border: 1px solid;
+  border-radius: 5px;
+  text-decoration: none;
+  background-color: white;
+  margin-right: 10px;
+}
+.addDancerButton:hover{
+  background-color:grey;
 }
 .topbar{
   height:26px;

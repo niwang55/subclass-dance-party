@@ -1,33 +1,6 @@
 $(document).ready(function() {
   window.dancers = [];
 
-  var findNeighbors = function(top, left) {
-    var neighbors = [];    
-
-    dancers.forEach(function(element) {
-      var a = Math.abs( top - element.top );
-      var b = Math.abs( left - element.left );
-      var distance = Math.sqrt( (a * a) + (b * b) );
-
-      if (distance < 150) {
-        neighbors.push(element);
-      }
-    });
-
-    return neighbors;
-  };
-
-  // Click handler
-  $('body').on('click', '.dancer', function(event) {
-    var $clicked = $(this);
-    var neighbors = findNeighbors($clicked.position().top, $clicked.position().left);
-
-    // Loop through neighbors
-    neighbors.forEach(function(dancer) {
-      // Access $node and do something to it
-      dancer.$node.css('color', 'white');
-    });
-  });
 
   $('.addDancerButton').on('click', function(event) {
     /* This function sets up the click handlers for the create-dancer
@@ -77,12 +50,37 @@ $(document).ready(function() {
     $(this).fadeOut();
   });
 
-  // $('body').on('click', '.green-dancer', function(event) {
-  //   $(this).css('color', 'red');
-  // });
-
   $('body').on('mouseleave', '.green-dancer', function(event) {
     $(this).fadeIn();
   });
+
+  var findNeighbors = function(top, left) {
+    var neighbors = [];    
+
+    dancers.forEach(function(element) {
+      var a = Math.abs( top - element.top );
+      var b = Math.abs( left - element.left );
+      var distance = Math.sqrt( (a * a) + (b * b) );
+
+      if (distance < 150) {
+        neighbors.push(element);
+      }
+    });
+
+    return neighbors;
+  };
+
+  // Click handler
+  $('body').on('click', '.dancer', function(event) {
+    var $clicked = $(this);
+    var neighbors = findNeighbors($clicked.position().top, $clicked.position().left);
+
+    // Loop through neighbors
+    neighbors.forEach(function(dancer) {
+      // Access $node and do something to it
+      dancer.$node.css('color', 'white');
+    });
+  });
+
 });
 

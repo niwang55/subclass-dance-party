@@ -28,10 +28,12 @@ describe('all Dancers', function() {
     }
   });
 
-  it('should have methods named "step" and "setPosition"', function() {
+  it('should have methods named "step", "setPosition", "lineUp", and "returnPos"', function() {
     for (var i = 0; i < dancers.length; i++) {
       expect(dancers[i].step).to.be.a('function');
       expect(dancers[i].setPosition).to.be.a('function');
+      expect(dancers[i].lineUp).to.be.a('function');
+      expect(dancers[i].returnPos).to.be.a('function');
     }
   });
 
