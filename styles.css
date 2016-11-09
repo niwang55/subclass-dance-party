@@ -58,3 +58,16 @@ button:hover{
 .resize-dancer{
   background-color: red;
 }
+.info{
+  color: white;
+  width: 200px;
+  font-size: 16px;
+  font-family: Helvetica;
+  position: relative;
+  top: 40px;
+  left: 20px;
+  text-align: center;
+}
+
+
+

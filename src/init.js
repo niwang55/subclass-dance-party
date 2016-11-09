@@ -9,7 +9,7 @@ $(document).ready(function() {
       var b = Math.abs( left - element.left );
       var distance = Math.sqrt( (a * a) + (b * b) );
 
-      if (distance < 100) {
+      if (distance < 150) {
         neighbors.push(element);
       }
     });
